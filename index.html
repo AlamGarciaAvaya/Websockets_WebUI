@@ -17,23 +17,35 @@
           <div class="card card-signin my-5">
             <div class="card-body">
               <h5 class="card-title text-center">Avaya Alerts</h5>
-              <form class="form-signin">
+              <form class="form-signin" method="post" id="post-frm">
                 <div class="form-label-group">
-                  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                  <label for="inputEmail">Email address</label>
+                  <input type="email" id="inputEmail" class="form-control" placeholder="Email " required autofocus>
+                  <label for="inputEmail">Email</label>
                 </div>
 
                 <div class="form-label-group">
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                  <input type="password" id="inputPassword" class="form-control" placeholder="Pasword" required>
                   <label for="inputPassword">Password</label>
                 </div>
-
-                <div class="custom-control custom-checkbox mb-3">
-                  <input type="checkbox" class="custom-control-input" id="customCheck1">
-                  <label class="custom-control-label" for="customCheck1">Remember password</label>
+                <div class="form-label-group">
+                  <input type="text" id="inputPais" class="form-control" placeholder="Pais" required>
+                  <label for="inputPais">Pais</label>
                 </div>
-                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                <div class="form-label-group">
+                  <input type="text" id="inputCliente" class="form-control" placeholder="Cliente" required>
+                  <label for="inputCliente">Cliente</label>
+                </div>
+
+
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" id="btn">Iniciar Sesión</button>
                 <hr class="my-4">
+
+                <div class="form-label-group">
+                  <button type="button" class="btn btn-outline-secondary  btn-lg btn-block" id="error-btn">Si Tienes un error da Click Aqui</button>
+                </div>
+
+
+
 
             </div>
           </div>
@@ -46,5 +58,35 @@
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script>
+  var frm = $('#post-frm');
 
-</body>
+  frm.submit(function(e) {
+    e.preventDefault();
+    console.log("Enviado");
+    var user = $('input#inputEmail').val();
+    var pass = $('input#inputPassword').val();
+    var pais = $('input#inputPais').val();
+    var cliente = $('input#inputCliente').val();
+    console.log(user);
+    console.log(pass);
+    console.log(pais);
+    var endpoint = "https://breeze2-132.collaboratory.avaya.com/services/AAADEVLOGGER/VantageTTSAccess?usuario="+user+"&pais="+pais+"&cliente="+cliente ;
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": endpoint,
+      "method": "POST"
+    }
+
+
+    $.ajax(settings).done(function(response) {
+      console.log(response);
+      window.location.replace('home.html');
+    });
+  });
+  $( "#error-btn" ).click(function() {
+    window.location.replace('https://breeze2-132.collaboratory.avaya.com');
+});
+  </script>
+  </html>
