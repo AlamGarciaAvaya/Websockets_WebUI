@@ -4,6 +4,7 @@ user = "9860";
 var socket = io('https://devavaya.ddns.net:80');
 socket.emit('reg', user);
 $('input#audio-txt').val("http://freesound.org/data/previews/275/275072_4486188-lq.mp3");
+$('input#img-txt').val("https://graffica.info/wp-content/uploads/2017/08/pepsi-logo-1.png");
 socket.on('tts', function(data) {
   console.log(data);
   $('#destino-txt').val(data.sender);
@@ -80,6 +81,19 @@ $("#tts-btn2").click(function() {
   var textotts = $('input#tts-txt2').val();
   $('#destiones-multiple :selected').each(function(i, sel) {
     socket.emit('tts', {
+      to: $(sel).text(),
+      message: textotts,
+      sender: user
+    });
+  });
+});
+
+
+$("#img-btn").click(function() {
+  var destino = $('input#destino-txt').val();
+  var textotts = $('input#img-txt').val();
+  $('#destiones-multiple :selected').each(function(i, sel) {
+    socket.emit('image', {
       to: $(sel).text(),
       message: textotts,
       sender: user

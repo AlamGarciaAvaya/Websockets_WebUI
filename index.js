@@ -8,6 +8,10 @@ FS -> lector de Archivos
 
 globalString = undefined;
 
+//Creamos un array de Usuarios Conectados
+var connectedUsers = {};
+var arr2 = [];
+
 const express = require('express'),
   http = require('https'),
   fs = require("fs");
@@ -41,96 +45,8 @@ app = express(),
   io = require('socket.io').listen(server);
 
 
-var bodyParser = require('body-parser')
-const basicAuth = require('express-basic-auth')
-
-app.use(bodyParser.json()); // to support JSON-encoded bodies
-app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
-  extended: true
-}));
-
-app.use(basicAuth({
-    users: { 'jlramirez': 'jlramirezbc9861!' }
-}))
-
-//Al memomento de obtener el directorio raiz del proyecto de NodeJS, declaramaos 2 funciones req (Request) res(Repsonses)
-
-app.post('/websockets/alert', function(req, res) {
-  var dest1 = req.body.destino,
-    url1 = req.body.mensaje;
-  var io2 = require('socket.io-client');
-  var socket2 = io2.connect('https://devavaya.ddns.net:80', {
-    reconnect: true
-  });
-  socket2.emit('reg', '123456789');
-  socket2.emit('alert', {
-    to: dest1,
-    message: url1
-  });
-  res.send('Notificacion Enviada')
 
 
-
-});
-
-app.post('/websockets/tts', function(req, res) {
-  var dest1 = req.body.destino,
-    mensaje = req.body.mensaje,
-    idioma = req.body.idioma;
-  var io2 = require('socket.io-client');
-  var socket2 = io2.connect('https://devavaya.ddns.net:80', {
-    reconnect: true
-  });
-  socket2.emit('reg', '123456789');
-  socket2.emit('p2p', {
-    to: dest1,
-    message: mensaje,
-    extra: idioma
-  });
-  res.send('Notificacion Enviada')
-});
-
-app.post('/websockets/pantalla', function(req, res) {
-  var dest1 = req.body.destino,
-    mensaje = req.body.mensaje
-    sender = req.body.sender;
-  var io2 = require('socket.io-client');
-  var socket2 = io2.connect('https://devavaya.ddns.net:80', {
-    reconnect: true
-  });
-  socket2.emit('reg', '123456789');
-  socket2.emit('tts', {
-    to: dest1,
-    message: mensaje,
-    sender: sender
-  });
-  res.send('Notificacion Enviada')
-
-});
-
-
-app.post('/websockets/logo', function(req, res) {
-  var dest1 = req.body.destino,
-    mensaje = req.body.mensaje;
-  var io2 = require('socket.io-client');
-  var socket2 = io2.connect('https://devavaya.ddns.net:80', {
-    reconnect: true
-  });
-  socket2.emit('reg', '123456789');
-  socket2.emit('tts', {
-    to: dest1,
-    message: mensaje
-    });
-  res.send('Notificacion Enviada')
-
-});
-
-
-
-
-//Creamos un array de Usuarios Conectados
-var connectedUsers = {};
-var arr2 = [];
 
 //Llamamos la funcions io.on para declarar los evebtos de nuestro Servidor
 
@@ -233,14 +149,15 @@ io.on('connection', function(socket) {
       message = data.message;
     if (connectedUsers.hasOwnProperty(to)) {
       console.log("Se ha conectado:" + to);
-      connectedUsers[to].emit('alert', {
+      connectedUsers[to].emit('image', {
         username: socket.username,
         message: message
       });
     }
   });
 
-  socket.on('startvoice', function(data) {
+  socket.on('alert', function(data) {
+    console.log("Alert");
     console.log(data);
     const to = data.to,
       message = data.message;
@@ -260,9 +177,91 @@ io.on('connection', function(socket) {
 
 
 
+var bodyParser = require('body-parser');
+const basicAuth = require('express-basic-auth');
+
+app.use(bodyParser.json()); // to support JSON-encoded bodies
+
+app.use(basicAuth({
+    users: { 'jlramirez': 'jlramirezbc9861!' }
+}));
+
+//Al memomento de obtener el directorio raiz del proyecto de NodeJS, declaramaos 2 funciones req (Request) res(Repsonses)
+
+app.post('/websockets/alert', function(req, res) {
+  var dest1 = req.body.destino,
+    url1 = req.body.mensaje;
+  var io2 = require('socket.io-client');
+  var socket2 = io2.connect('https://devavaya.ddns.net:80', {
+    reconnect: true
+  });
+  socket2.emit('reg', '123456789');
+  socket2.emit('alert', {
+    to: dest1,
+    message: url1
+  });
+  res.send('Notificacion Enviada');
+
+
+
+});
+
+app.post('/websockets/tts', function(req, res) {
+  var dest1 = req.body.destino,
+    mensaje = req.body.mensaje,
+    idioma = req.body.idioma;
+  var io2 = require('socket.io-client');
+  var socket2 = io2.connect('https://devavaya.ddns.net:80', {
+    reconnect: true
+  });
+  socket2.emit('reg', '123456789');
+  socket2.emit('p2p', {
+    to: dest1,
+    message: mensaje,
+    extra: idioma
+  });
+  res.send('Notificacion Enviada');
+});
+
+app.post('/websockets/pantalla', function(req, res) {
+  var dest1 = req.body.destino,
+    mensaje = req.body.mensaje
+    sender = req.body.sender;
+  var io2 = require('socket.io-client');
+  var socket2 = io2.connect('https://devavaya.ddns.net:80', {
+    reconnect: true
+  });
+  socket2.emit('reg', '123456789');
+  socket2.emit('tts', {
+    to: dest1,
+    message: mensaje,
+    sender: sender
+  });
+  res.send('Notificacion Enviada');
+
+});
+
+
+app.post('/websockets/logo', function(req, res) {
+  var dest1 = req.body.destino,
+    mensaje = req.body.mensaje;
+  var io2 = require('socket.io-client');
+  var socket2 = io2.connect('https://devavaya.ddns.net:80', {
+    reconnect: true
+  });
+  socket2.emit('reg', '123456789');
+  socket2.emit('image', {
+    to: dest1,
+    message: mensaje
+    });
+  res.send('Notificacion Enviada');
+
+});
+
+
 //Indicamos que
 server.listen(80, () => {
 
-  console.log('Corriendo Server puerto 980')
+  console.log('Corriendo Server puerto 980');
 
 })

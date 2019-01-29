@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css\bootstrap.min.css">
+  <link rel="stylesheet" href="css\custom.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+
+  <title>Alerts Beta</title>
+</head>
+
+<body>
+
+  <header>
+
+    <div class="navbar navbar-dark bg-dark box-shadow">
+      <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1" class="mr-2">
+            <path d="M15.684,16.959L10.879,8.52c0.886-0.343,1.517-1.193,1.517-2.186c0-1.296-1.076-2.323-2.396-2.323S7.604,5.037,7.604,6.333c0,0.993,0.63,1.843,1.517,2.186l-4.818,8.439c-0.189,0.311,0.038,0.708,0.412,0.708h10.558C15.645,17.667,15.871,17.27,15.684,16.959 M8.562,6.333c0-0.778,0.645-1.382,1.438-1.382s1.438,0.604,1.438,1.382c0,0.779-0.645,1.412-1.438,1.412S8.562,7.113,8.562,6.333 M5.55,16.726L10,8.91l4.435,7.815H5.55z M15.285,9.62c1.26-2.046,1.26-4.525,0-6.572c-0.138-0.223-0.064-0.512,0.162-0.646c0.227-0.134,0.521-0.063,0.658,0.16c1.443,2.346,1.443,5.2,0,7.546c-0.236,0.382-0.641,0.17-0.658,0.159C15.221,10.131,15.147,9.842,15.285,9.62 M13.395,8.008c0.475-1.063,0.475-2.286,0-3.349c-0.106-0.238,0.004-0.515,0.246-0.62c0.242-0.104,0.525,0.004,0.632,0.242c0.583,1.305,0.583,2.801,0,4.106c-0.214,0.479-0.747,0.192-0.632,0.242C13.398,8.523,13.288,8.247,13.395,8.008 M3.895,10.107c-1.444-2.346-1.444-5.2,0-7.546c0.137-0.223,0.431-0.294,0.658-0.16c0.226,0.135,0.299,0.424,0.162,0.646c-1.26,2.047-1.26,4.525,0,6.572c0.137,0.223,0.064,0.512-0.162,0.646C4.535,10.277,4.131,10.489,3.895,10.107 M5.728,8.387c-0.583-1.305-0.583-2.801,0-4.106c0.106-0.238,0.39-0.346,0.631-0.242c0.242,0.105,0.353,0.382,0.247,0.62c-0.475,1.063-0.475,2.286,0,3.349c0.106,0.238-0.004,0.515-0.247,0.62c-0.062,0.027-0.128,0.04-0.192,0.04C5.982,8.668,5.807,8.563,5.728,8.387"></path>
+          </svg>
+          <strong>Alertas</strong>
+        </a>
+
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Instrucciones</h1>
+        <p class="lead text-muted">1. Configura tu Vantage para apuntar al siguiente fileserver http://104.248.23.21/Dev/</p>
+        <p class="lead text-muted">2. Espera 5 minutos y reinicia el dispositivo </p>
+        <p class="lead text-muted">3. Ingresa con tu extensión en el dispositivo </p>
+        <p class="lead text-muted">4. Selecciona el Modo que deseas probar Alertas o TTS </p>
+        <p class="lead text-muted">5. Destino escribe los ultimos 8 digitlos de laextensión con la que iniciaste sesión y dar enviar</p>
+        <p class="lead text-muted">6. Si Seleccionaste TTS, escribe el idioma al que quieres que se traduzca tu mensaje.</p>
+
+      </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card mb-4 shadow-sm">
+              <div class="card-body">
+                <div class="container d-flex">
+
+                  <ul id="tabs" class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                      <a id="tab-A" href="#pane-A" class="nav-link active" data-toggle="tab" role="tab">Alerta</a>
+                    </li>
+                  <li class="nav-item">
+                      <a id="tab-B" href="#pane-B" class="nav-link" data-toggle="tab" role="tab">TTS</a>
+                    </li>
+                    <li class="nav-item">
+                      <a id="tab-C" href="#pane-C" class="nav-link" data-toggle="tab" role="tab">Testing</a>
+                    </li>
+
+                  </ul>
+
+                  <div id="content" class="tab-content" role="tablist">
+                    <div id="pane-A" class="card tab-pane fade show active" role="tabpanel" aria-labelledby="tab-A">
+                      <div class="card-header" role="tab" id="heading-A">
+                        <h5 class="mb-0">
+                          <a data-toggle="collapse" href="#collapse-A" data-parent="#content" aria-expanded="true" aria-controls="collapse-A">
+                            Collapsible Group Item A
+                          </a>
+                        </h5>
+                      </div>
+                      <div id="collapse-A" class="collapse show" role="tabpanel" aria-labelledby="heading-A">
+                        <div class="card-body">
+                          <p class="lead text-muted">Ingresa la URL del audio que quieras reproducir remotamente</p>
+                          <input type="tel" id="audio-txt" class="form-control">
+                          <br>
+                          <button class="btn btn-outline-success btn-lg btn-block" id="alert-btn">Enviar</button>
+
+                          <p>Formatos admitidos MP3/WAV</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div id="pane-B" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-B">
+                      <div id="collapse-B" class="collapse" role="tabpanel" aria-labelledby="heading-B">
+                        <div class="card-body">
+                          <p class="lead text-muted">Escribe un texto y el idioma en el que deseas que sea reproducido en el Vantage Destino</p>
+                            <div class="form-group">
+                              <label for="exampleFormControlInput1">Texto</label>
+                              <input type="text" class="form-control" id="tts-txt">
+                            </div>
+                            <div class="form-group">
+                              <label for="exampleFormControlSelect1">Idioma</label>
+                              <select class="js-example-basic-single" id="idioma-tts" style="width: 100%">
+                              </select>
+                            </div>
+                            <button class="btn btn-outline-success btn-lg btn-block" id="tts-btn">Enviar</button>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div id="pane-C" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-B">
+                      <div id="collapse-C" class="collapse" role="tabpanel" aria-labelledby="heading-B">
+                        <div class="card-body">
+                          <p class="lead text-muted">Testing</p>
+                            <div class="form-group">
+                              <label for="exampleFormControlInput1">Texto</label>
+                              <input type="text" class="form-control" id="tts-txt2">
+                            </div>
+
+                            <button class="btn btn-outline-success btn-lg btn-block" id="tts-btn2">Enviar</button>
+
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <div class="card-body">
+                <h5 class="jumbotron-heading">Destino</h5>
+                <select class="form-control" multiple id="destiones-multiple">
+                </select>
+              </div>
+            </div>
+
+
+
+            <div class="card mb-4 shadow-sm">
+              <div class="card-body">
+                <h5 class="jumbotron-heading">Callbacks Debug</h5>
+                <textarea rows="4" cols="50" id="debug-txt" class="form-control">
+                </textarea>
+               </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <footer class="text-muted">
+    <div class="container">
+      <p>AVAYA</p>
+    </div>
+  </footer>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/lib.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+  <script src="js/custom.js"></script>
+
+</body>
+
+</html>
