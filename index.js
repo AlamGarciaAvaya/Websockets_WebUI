@@ -5,6 +5,7 @@ http -> conexiones HTTPS
 FS -> lector de Archivos
 
 */
+require('log-timestamp');
 
 globalString = undefined;
 

@@ -3,8 +3,26 @@ var user;
 user = "9860";
 var socket = io('https://devavaya.ddns.net:80');
 socket.emit('reg', user);
-$('input#audio-txt').val("http://freesound.org/data/previews/275/275072_4486188-lq.mp3");
-$('input#img-txt').val("https://graffica.info/wp-content/uploads/2017/08/pepsi-logo-1.png");
+$('input#img-txt').val("http://www.rcdecolighting.com/sites/55c63efee8cb91caa5000002/content_entry55e445b341d9ac48ed0000f0/55eff9c1d6c2f2024d001fc9/files/Westin_logo_rgb.jpg");
+//Combo Imagenes predef
+$('select#predef-logo').on('change', function() {
+  console.log(this.value);
+  $('input#img-txt').val(this.value);
+});
+
+
+//combo AUdio ES Predef
+$('select#predef-audio-es').on('change', function() {
+  console.log(this.value);
+  $('input#audio-txt').val(this.value);
+});
+
+//combo Audio PT Predef
+$('select#predef-audio-pt').on('change', function() {
+  console.log(this.value);
+  $('input#audio-txt').val(this.value);
+});
+
 socket.on('tts', function(data) {
   console.log(data);
   $('#destino-txt').val(data.sender);

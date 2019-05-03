@@ -46,16 +46,7 @@
   <nav class="site-header sticky-top py-1">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
       <a class="py-2" href="#">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mx-auto" focusable="false" role="img">
-          <title>Product</title>
-          <circle cx="12" cy="12" r="10"></circle>
-          <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
-          <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
-          <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
-          <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
-          <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
-          <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
-        </svg>
+        America's International PoC Development Team
       </a>
 
     </div>
@@ -98,6 +89,27 @@
 
             <p class="lead text-muted">Ingresa la URL del audio que quieras reproducir remotamente</p>
             <input type="tel" id="audio-txt" class="form-control">
+            <hr>
+            <p class="lead text-muted">Audios Espa&ntilde;ol</p>
+            <select class="form-control" id="predef-audio-es">
+              <option value="http://audiomarketing.com.mx/home/adm/Audio/audio/BONAFINA-ok-.ogg" >Bonafina</option>
+              <option value="http://audiomarketing.com.mx/home/adm/Audio/audio/comerciales-para-radio/Spot Daris y Charly.ogg" >Daris y Charly</option>
+              <option value="http://audiomarketing.com.mx/home/adm/Audio/audio/comerciales-para-radio/Plaza la granja.ogg" >Plaza la granja</option>
+              <option value="http://audiomarketing.com.mx/home/adm/Audio/audio/comerciales-para-radio/Spot Amifin.ogg" >Amifin</option>
+              <option value="http://audiomarketing.com.mx/home/adm/Audio/audio/comerciales-para-radio/Spot Pinturas champion.ogg" >Pinturas champion</option>
+              <option value="http://audiomarketing.com.mx/home/adm/Audio/audio/comerciales-para-radio/Spot 2 VIH Famecom.ogg" >VIH Famecom</option>
+            </select>
+
+            <p class="lead text-muted">Audios Portugu&eacute;s</p>
+            <select class="form-control" id="predef-audio-pt">
+              <option value="http://www.locutor.info/Jingles/90/Cerveja Brahma.mp3" >Cerveja Brahma</option>
+              <option value="http://www.locutor.info/Jingles/90/Caixa Economica Federal.mp3" >Caixa Economica Federal</option>
+              <option value="http://www.locutor.info/Jingles/Comercial TransBrasil Agente 727 1981.mp3" >TransBrasil agente 77</option>
+              <option value="http://www.locutor.info/Jingles/90/Automovel Clube.mp3" >Automovel Clube</option>
+              <option value="http://www.locutor.info/Jingles/90/guarana antarctica - pizza.mp3" >Guarana Antarctica</option>
+              <option value="http://www.locutor.info/Jingles/Comercial Sabonetes Lifeboy Anos 30.mp3" >Sabonetes Lifeboy</option>
+              <option value="http://www.locutor.info/Jingles/Cigarros/cigarros_continental.mp3" >Cigarros Continental</option>
+            </select>
             <br>
             <button class="btn btn-outline-success btn-lg btn-block" id="alert-btn">Enviar</button>
             <p>Formatos admitidos MP3/WAV</p>
@@ -130,8 +142,16 @@
               <div class="form-group">
                 <label for="exampleFormControlInput1">URL</label>
                 <input type="text" class="form-control" id="img-txt">
+                <hr>
+                <select class="form-control" id="predef-logo">
+                  <option value="http://www.rcdecolighting.com/sites/55c63efee8cb91caa5000002/content_entry55e445b341d9ac48ed0000f0/55eff9c1d6c2f2024d001fc9/files/Westin_logo_rgb.jpg" >Westing Hotels & Resorts</option>
+                  <option value="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Marriott_Logo.svg/2000px-Marriott_Logo.svg.png" >Marriott - Hotels - Resorts - Suites</option>
+                  <option value="http://logowiki.net/wp-content/uploads/imgp/telefonica-super-15-Logo-1-9998.jpg" >Telefónica</option>
+                  <option value="https://vignette.wikia.nocookie.net/walmart/images/9/92/Walmart_logo.png" >Walmart</option>
+                  <option value="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Avaya_Logo.svg/1280px-Avaya_Logo.svg.png" >Avaya</option>
+                </select>
               </div>
-              
+
               <button class="btn btn-outline-success btn-lg btn-block" id="img-btn">Enviar</button>
 
           </div>
@@ -149,7 +169,7 @@
 
 
   <footer class="container py-5">
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-12 col-md">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mb-2" focusable="false" role="img">
           <title>Product</title>
@@ -201,12 +221,12 @@
           <li><a class="text-muted" href="#">Terms</a></li>
         </ul>
       </div>
-    </div>
+    </div> -->
   </footer>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
   <script src="js/lib.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
   <script src="js/custom.js"></script>

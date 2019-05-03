@@ -1,0 +1,13 @@
+[
+  {
+    "uid": "websockets",
+    "append": true,
+    "watch": false,
+    "script": "index.js",
+    "sourceDir": "/var/www/devavaya.ddns.net/html/websockets/",
+    "workingDir": "/var/www/devavaya.ddns.net/html/websockets/",
+    "logFile": "/var/www/devavaya.ddns.net/html/websockets/log.log",
+    "outFile": "/var/www/devavaya.ddns.net/html/websockets/out.log",
+    "errFile": "/var/www/devavaya.ddns.net/html/websockets/error.log"
+  }
+]
