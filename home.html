@@ -81,6 +81,12 @@
           <li class="nav-item">
             <a class="nav-link" href="#logo" role="tab" data-toggle="tab">logo</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#video" role="tab" data-toggle="tab">video</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#imagen" role="tab" data-toggle="tab">imagen</a>
+          </li>
         </ul>
 
         <!-- Tab panes -->
@@ -151,10 +157,36 @@
                   <option value="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Avaya_Logo.svg/1280px-Avaya_Logo.svg.png" >Avaya</option>
                 </select>
               </div>
-
               <button class="btn btn-outline-success btn-lg btn-block" id="img-btn">Enviar</button>
-
           </div>
+          <div role="tabpanel" class="tab-pane fade" id="video">
+            <p class="lead text-muted">Video streaming Vantage (Beta)</p>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">URL</label>
+                <input type="text" class="form-control" id="video-txt">
+                <hr>
+                <select class="form-control" id="predef-video">
+                  <option value="https://devavaya.ddns.net/videos/people.mp4">Demo Video</option>
+                  <option value="https://devavaya.ddns.net/videos/water.mp4">Demo Video 2</option>
+                </select>
+              </div>
+              <button class="btn btn-outline-success btn-lg btn-block" id="video-btn">Enviar</button>
+          </div>
+
+          <div role="tabpanel" class="tab-pane fade" id="imagen">
+            <p class="lead text-muted">Picture PopUp (Beta)</p>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">URL</label>
+                <input type="text" class="form-control" id="imagen-txt">
+                <hr>
+                <select class="form-control" id="predef-imagen">
+                  <option value="https://devavaya.ddns.net/videos/people.mp4">Demo Video</option>
+                  <option value="https://devavaya.ddns.net/videos/water.mp4">Demo Video 2</option>
+                </select>
+              </div>
+              <button class="btn btn-outline-success btn-lg btn-block" id="imagen-btn">Enviar</button>
+          </div>
+
         </div>
       </div>
     </div>

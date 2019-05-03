@@ -156,6 +156,32 @@ io.on('connection', function(socket) {
       });
     }
   });
+//Envio de Video
+  socket.on('video', function(data) {
+    console.log(data);
+    const to = data.to,
+      message = data.message;
+    if (connectedUsers.hasOwnProperty(to)) {
+      console.log("Se ha conectado:" + to);
+      connectedUsers[to].emit('video', {
+        username: socket.username,
+        message: message
+      });
+    }
+  });
+//Mostrar imagen
+  socket.on('image2', function(data) {
+    console.log(data);
+    const to = data.to,
+      message = data.message;
+    if (connectedUsers.hasOwnProperty(to)) {
+      console.log("Se ha conectado:" + to);
+      connectedUsers[to].emit('image2', {
+        username: socket.username,
+        message: message
+      });
+    }
+  });
 
   socket.on('alert', function(data) {
     console.log("Alert");

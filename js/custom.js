@@ -5,11 +5,21 @@ var socket = io('https://devavaya.ddns.net:80');
 socket.emit('reg', user);
 $('input#img-txt').val("http://www.rcdecolighting.com/sites/55c63efee8cb91caa5000002/content_entry55e445b341d9ac48ed0000f0/55eff9c1d6c2f2024d001fc9/files/Westin_logo_rgb.jpg");
 //Combo Imagenes predef
+
 $('select#predef-logo').on('change', function() {
   console.log(this.value);
   $('input#img-txt').val(this.value);
 });
 
+$('select#predef-video').on('change', function() {
+  console.log(this.value);
+  $('input#video-txt').val(this.value);
+});
+
+$('select#predef-imagen').on('change', function() {
+  console.log(this.value);
+  $('input#imagen-txt').val(this.value);
+});
 
 //combo AUdio ES Predef
 $('select#predef-audio-es').on('change', function() {
@@ -117,6 +127,28 @@ $("#img-btn").click(function() {
       sender: user
     });
   });
+});
 
+$("#video-btn").click(function() {
+  var destino = $('input#destino-txt').val();
+  var textotts = $('input#video-txt').val();
+  $('#destiones-multiple :selected').each(function(i, sel) {
+    socket.emit('video', {
+      to: $(sel).text(),
+      message: textotts,
+      sender: user
+    });
+  });
+});
 
+$("#imagen-btn").click(function() {
+  var destino = $('input#destino-txt').val();
+  var textotts = $('input#imagen-txt').val();
+  $('#destiones-multiple :selected').each(function(i, sel) {
+    socket.emit('image2', {
+      to: $(sel).text(),
+      message: textotts,
+      sender: user
+    });
+  });
 });
