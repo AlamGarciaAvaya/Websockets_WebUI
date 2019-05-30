@@ -12,12 +12,16 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 
   <style>
+    select#destiones-multiple {
+      height: 600px;
+    }
+
     * {
       font-family: 'Playfair Display', serif;
     }
 
     h1#brandtxt {
-        color: #DA291C;
+      color: #DA291C;
     }
 
     .bd-placeholder-img {
@@ -30,13 +34,14 @@
         font-size: 3.5rem;
       }
     }
-    ul.nav.nav-tabs {
-    background: white;
-}
 
-.tab-content {
-    background: white;
-}
+    ul.nav.nav-tabs {
+      background: white;
+    }
+
+    .tab-content {
+      background: white;
+    }
   </style>
   <!-- Custom styles for this template -->
   <link rel="stylesheet" href="css/custom.css">
@@ -59,147 +64,129 @@
     <div class="product-device shadow-sm d-none d-md-block"></div>
     <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
   </div>
-
-  <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-    <div class="bg-light mr-md-1 pt-1 px-1 pt-md-1 px-md-1 text-center overflow-hidden">
-      <div class="my-0 py-0">
-        <h2 class="display-5">Tipo</h2>
-        <!-- Bootstrap CSS -->
-        <!-- jQuery first, then Bootstrap JS. -->
-        <!-- Nav tabs -->
-
-        <ul class="nav nav-tabs" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" href="#sound" role="tab" data-toggle="tab">sonido</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#tts" role="tab" data-toggle="tab">tts</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#screen" role="tab" data-toggle="tab">mensaje</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#logo" role="tab" data-toggle="tab">logo</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#video" role="tab" data-toggle="tab">video</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#imagen" role="tab" data-toggle="tab">imagen</a>
-          </li>
-        </ul>
-
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane fade active" id="sound">
-
-            <p class="lead text-muted">Ingresa la URL del audio que quieras reproducir remotamente</p>
-            <input type="tel" id="audio-txt" class="form-control">
-            <hr>
-            <p class="lead text-muted">Audios Espa&ntilde;ol</p>
-            <select class="form-control" id="predef-audio-es">
-              <option value="http://104.248.23.21/Recursos/audio_vantage/spanish/bonafina.ogg" >Bonafina</option>
-              <option value="http://104.248.23.21/Recursos/audio_vantage/spanish/spotdani.ogg" >Daris y Charly</option>
-              <option value="http://104.248.23.21/Recursos/audio_vantage/spanish/plaza.ogg" >Plaza la granja</option>
-              <option value="http://104.248.23.21/Recursos/audio_vantage/spanish/spotamifin.ogg" >Amifin</option>
-              <option value="http://104.248.23.21/Recursos/audio_vantage/spanish/pinturas.ogg" >Pinturas champion</option>
-              <option value="http://104.248.23.21/Recursos/audio_vantage/spanish/spotvih.ogg" >VIH Famecom</option>
-            </select>
-
-            <p class="lead text-muted">Audios Portugu&eacute;s</p>
-            <select class="form-control" id="predef-audio-pt">
-              <option value="http://104.248.23.21/Recursos/audio_vantage/portugues/cervejabrahma.mp3" >Cerveja Brahma</option>
-              <option value="http://104.248.23.21/Recursos/audio_vantage/portugues/caixaeconomica.mp3" >Caixa Economica Federal</option>
-              <option value="http://104.248.23.21/Recursos/audio_vantage/portugues/agente727.mp3" >TransBrasil agente 77</option>
-              <option value="http://104.248.23.21/Recursos/audio_vantage/portugues/autoclube.mp3" >Automovel Clube</option>
-              <option value="http://104.mp3" >Guarana Antarctica</option>
-              <option value="http://104.248.23.21/Recursos/audio_vantage/portugues/sabonetes.mp3" >Sabonetes Lifeboy</option>
-              <option value="http://104.248.23.21/Recursos/audio_vantage/portugues/cigarros.mp3" >Cigarros Continental</option>
-            </select>
-            <br>
-            <button class="btn btn-outline-success btn-lg btn-block" id="alert-btn">Enviar</button>
-            <p>Formatos admitidos MP3/WAV</p>
-          </div>
-          <div role="tabpanel" class="tab-pane fade" id="tts">
-            <p class="lead text-muted">Escribe un texto y el idioma en el que deseas que sea reproducido</p>
-              <div class="form-group">
-                <label for="exampleFormControlInput1">Texto</label>
-                <input type="text" class="form-control" id="tts-txt">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+            <h2 class="display-5">Tipo</h2>
+            <!-- Bootstrap CSS -->
+            <!-- jQuery first, then Bootstrap JS. -->
+            <!-- Nav tabs -->
+            <nav>
+              <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-sonido-tab" data-toggle="tab" href="#nav-sonido" role="tab" aria-controls="nav-sonido" aria-selected="true">Audio</a>
+                <a class="nav-item nav-link" id="nav-tts-tab" data-toggle="tab" href="#nav-tts" role="tab" aria-controls="nav-tts" aria-selected="false">TTS</a>
+                <a class="nav-item nav-link" id="nav-mensajes-tab" data-toggle="tab" href="#nav-mensajes" role="tab" aria-controls="nav-mensajes" aria-selected="false">Mensaje</a>
+                <a class="nav-item nav-link" id="nav-logo-tab" data-toggle="tab" href="#nav-logo" role="tab" aria-controls="nav-logo" aria-selected="false">Logo</a>
+                <a class="nav-item nav-link" id="nav-video-tab" data-toggle="tab" href="#nav-video" role="tab" aria-controls="nav-video" aria-selected="false">Video</a>
               </div>
-              <div class="form-group">
-                <label for="exampleFormControlSelect1">Idioma</label>
-                <select class="js-example-basic-single" id="idioma-tts" style="width: 100%">
-                </select>
-              </div>
-              <button class="btn btn-outline-success btn-lg btn-block" id="tts-btn">Enviar</button>
-          </div>
-          <div role="tabpanel" class="tab-pane fade" id="screen">
-            <p class="lead text-muted">Envía un mensaje a la pantalla y lo traduce de acuerdo al idioma del Sistema</p>
-              <div class="form-group">
-                <label for="exampleFormControlInput1">Texto</label>
-                <input type="text" class="form-control" id="tts-txt2">
-              </div>
-
-              <button class="btn btn-outline-success btn-lg btn-block" id="tts-btn2">Enviar</button>
-
-          </div>
-          <div role="tabpanel" class="tab-pane fade" id="logo">
-            <p class="lead text-muted">Cambia el logo del Vantage, tienes que ingresar una URL</p>
-              <div class="form-group">
-                <label for="exampleFormControlInput1">URL</label>
-                <input type="text" class="form-control" id="img-txt">
+            </nav>
+            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-sonido" role="tabpanel" aria-labelledby="nav-sonido-tab">
+                <p class="lead text-muted">Ingresa la URL del audio que quieras reproducir remotamente</p>
+                <input type="tel" id="audio-txt" class="form-control">
                 <hr>
-                <select class="form-control" id="predef-logo">
-                  <option value="http://www.rcdecolighting.com/sites/55c63efee8cb91caa5000002/content_entry55e445b341d9ac48ed0000f0/55eff9c1d6c2f2024d001fc9/files/Westin_logo_rgb.jpg" >Westing Hotels & Resorts</option>
-                  <option value="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Marriott_Logo.svg/2000px-Marriott_Logo.svg.png" >Marriott - Hotels - Resorts - Suites</option>
-                  <option value="http://logowiki.net/wp-content/uploads/imgp/telefonica-super-15-Logo-1-9998.jpg" >Telefónica</option>
-                  <option value="https://vignette.wikia.nocookie.net/walmart/images/9/92/Walmart_logo.png" >Walmart</option>
-                  <option value="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Avaya_Logo.svg/1280px-Avaya_Logo.svg.png" >Avaya</option>
+                <p class="lead text-muted">Audios Engage</p>
+                <select class="form-control" id="predef-audio-engage">
+                  <option selected>Elegir...</option>
+                  <option value="1">AAI_WelcomeEngage_Ding</option>
+                  <option value="2">AAI_WelcomeEnagage2</option>
+                  <option value="3">AAI_IoT2</option>
+                  <option value="4">AAI_Conferencias</option>
+                  <option value="5">AAI_IA_1</option>
+                  <option value="6">AAI_IA_1</option>
                 </select>
-              </div>
-              <button class="btn btn-outline-success btn-lg btn-block" id="img-btn">Enviar</button>
-          </div>
-          <div role="tabpanel" class="tab-pane fade" id="video">
-            <p class="lead text-muted">Video streaming Vantage (Beta)</p>
-              <div class="form-group">
-                <label for="exampleFormControlInput1">URL</label>
-                <input type="text" class="form-control" id="video-txt">
                 <hr>
-                <select class="form-control" id="predef-video">
-                  <option value="http://104.248.23.21/Recursos/video_vantage/file_example_MP4_480_1_5MG.mp4">Demo Video 1</option>
-                  <option value="http://104.248.23.21/Recursos/video_vantage/nasa_-_arctic_sea_ice_sets_new_record_winter_low.mp4">Demo Video 2</option>
-                  <option value="http://104.248.23.21/Recursos/video_vantage/occultationgraphh264fullsize.mp4">Demo Video 3</option>
-                  <option value="http://104.248.23.21/Recursos/video_vantage/sciencecasts-_total_eclipse_of_the_moon.mp4">Demo Video 4</option>
+                <p class="lead text-muted">Audios Espa&ntilde;ol</p>
+                <select class="form-control" id="predef-audio-es">
+                  <option value="http://104.248.23.21/Recursos/audio_vantage/spanish/bonafina.ogg">Bonafina</option>
+                  <option value="http://104.248.23.21/Recursos/audio_vantage/spanish/spotdani.ogg">Daris y Charly</option>
+                  <option value="http://104.248.23.21/Recursos/audio_vantage/spanish/plaza.ogg">Plaza la granja</option>
+                  <option value="http://104.248.23.21/Recursos/audio_vantage/spanish/spotamifin.ogg">Amifin</option>
+                  <option value="http://104.248.23.21/Recursos/audio_vantage/spanish/pinturas.ogg">Pinturas champion</option>
+                  <option value="http://104.248.23.21/Recursos/audio_vantage/spanish/spotvih.ogg">VIH Famecom</option>
                 </select>
-              </div>
-              <button class="btn btn-outline-success btn-lg btn-block" id="video-btn">Enviar</button>
-          </div>
 
-          <div role="tabpanel" class="tab-pane fade" id="imagen">
-            <p class="lead text-muted">Picture PopUp (Beta)</p>
-              <div class="form-group">
-                <label for="exampleFormControlInput1">URL</label>
-                <input type="text" class="form-control" id="imagen-txt">
-                <hr>
-                <select class="form-control" id="predef-imagen">
-                  <option value="https://devavaya.ddns.net/videos/people.mp4">Demo Video</option>
-                  <option value="https://devavaya.ddns.net/videos/water.mp4">Demo Video 2</option>
+                <p class="lead text-muted">Audios Portugu&eacute;s</p>
+                <select class="form-control" id="predef-audio-pt">
+                  <option value="http://104.248.23.21/Recursos/audio_vantage/portugues/cervejabrahma.mp3">Cerveja Brahma</option>
+                  <option value="http://104.248.23.21/Recursos/audio_vantage/portugues/caixaeconomica.mp3">Caixa Economica Federal</option>
+                  <option value="http://104.248.23.21/Recursos/audio_vantage/portugues/agente727.mp3">TransBrasil agente 77</option>
+                  <option value="http://104.248.23.21/Recursos/audio_vantage/portugues/autoclube.mp3">Automovel Clube</option>
+                  <option value="http://104.248.23.21/Recursos/audio_vantage/portugues/pizza.mp3">Guarana Antarctica</option>
+                  <option value="http://104.248.23.21/Recursos/audio_vantage/portugues/sabonetes.mp3">Sabonetes Lifeboy</option>
+                  <option value="http://104.248.23.21/Recursos/audio_vantage/portugues/cigarros.mp3">Cigarros Continental</option>
                 </select>
+                <br>
+                <button class="btn btn-outline-success btn-lg btn-block" id="alert-btn">Enviar</button>
+                <p>Formatos admitidos MP3/WAV</p>
               </div>
-              <button class="btn btn-outline-success btn-lg btn-block" id="imagen-btn">Enviar</button>
-          </div>
+              <div class="tab-pane fade" id="nav-tts" role="tabpanel" aria-labelledby="nav-tts-tab">
+                <p class="lead text-muted">Escribe un texto y el idioma en el que deseas que sea reproducido</p>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Texto</label>
+                  <input type="text" class="form-control" id="tts-txt">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Idioma</label>
+                  <select class="js-example-basic-single" id="idioma-tts" style="width: 100%">
+                  </select>
+                </div>
+                <button class="btn btn-outline-success btn-lg btn-block" id="tts-btn">Enviar</button>
+              </div>
+              <div class="tab-pane fade" id="nav-mensajes" role="tabpanel" aria-labelledby="nav-mensajes-tab">
+                <p class="lead text-muted">Envía un mensaje a la pantalla y lo traduce de acuerdo al idioma del Sistema</p>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Texto</label>
+                  <input type="text" class="form-control" id="tts-txt2">
+                </div>
+                <button class="btn btn-outline-success btn-lg btn-block" id="tts-btn2">Enviar</button>
+              </div>
+              <div class="tab-pane fade" id="nav-logo" role="tabpanel" aria-labelledby="nav-logo-tab">
+                <p class="lead text-muted">Cambia el logo del Vantage, tienes que ingresar una URL</p>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">URL</label>
+                  <input type="text" class="form-control" id="img-txt">
+                  <hr>
+                  <select class="form-control" id="predef-logo">
+                    <option value="http://www.rcdecolighting.com/sites/55c63efee8cb91caa5000002/content_entry55e445b341d9ac48ed0000f0/55eff9c1d6c2f2024d001fc9/files/Westin_logo_rgb.jpg">Westing Hotels & Resorts</option>
+                    <option value="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Marriott_Logo.svg/2000px-Marriott_Logo.svg.png">Marriott - Hotels - Resorts - Suites</option>
+                    <option value="http://logowiki.net/wp-content/uploads/imgp/telefonica-super-15-Logo-1-9998.jpg">Telefónica</option>
+                    <option value="https://vignette.wikia.nocookie.net/walmart/images/9/92/Walmart_logo.png">Walmart</option>
+                    <option value="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Avaya_Logo.svg/1280px-Avaya_Logo.svg.png">Avaya</option>
+                  </select>
+                </div>
+                <button class="btn btn-outline-success btn-lg btn-block" id="img-btn">Enviar</button>
+              </div>
+              <div class="tab-pane fade" id="nav-video" role="tabpanel" aria-labelledby="nav-video-tab">
+                <p class="lead text-muted">Video streaming Vantage (Beta)</p>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">URL</label>
+                  <input type="text" class="form-control" id="video-txt">
+                  <hr>
+                  <select class="form-control" id="predef-video">
+                    <option value="http://104.248.23.21/Recursos/video_vantage/file_example_MP4_480_1_5MG.mp4">Demo Video 1</option>
+                    <option value="http://104.248.23.21/Recursos/video_vantage/nasa_-_arctic_sea_ice_sets_new_record_winter_low.mp4">Demo Video 2</option>
+                    <option value="http://104.248.23.21/Recursos/video_vantage/occultationgraphh264fullsize.mp4">Demo Video 3</option>
+                    <option value="http://104.248.23.21/Recursos/video_vantage/sciencecasts-_total_eclipse_of_the_moon.mp4">Demo Video 4</option>
+                  </select>
+                </div>
+                <button class="btn btn-outline-success btn-lg btn-block" id="video-btn">Enviar</button>
+              </div>
+            </div>
+            </div>
+              <!-- Tab panes -->
 
-        </div>
-      </div>
+
+
+    <div class="col-sm">
+          <h2 class="display-5">Destino</h2>
+          <select class="form-control" multiple id="destiones-multiple">
+          </select>
+
     </div>
-    <div class="bg-light mr-md-1 pt-1 px-1 pt-md-1 px-md-1 text-center overflow-hidden">
-      <div class="my-0 p-0">
-        <h2 class="display-5">Destino</h2>
-        <select class="form-control" multiple id="destiones-multiple">
-        </select>
-      </div>
     </div>
-  </div>
+
+
 
 
   <footer class="container py-5">
