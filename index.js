@@ -286,9 +286,9 @@ app.post('/websockets/logo', function(req, res) {
 });
 
 
-//Indicamos que
+//Puerto de escucha
 server.listen(80, () => {
 
-  console.log('Corriendo Server puerto 980');
+  console.log('Corriendo Server puerto 80');
 
 })
